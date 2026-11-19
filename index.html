@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Variables</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --FF: "Nunito", sans-serif;
+      --FS: 1.5rem;
+      --FS-XL: 3rem;
+
+      --BGCOLOR: #475569;
+      --ALT-BGCOLOR: #f1f5f9;
+      --RADIAL-COLOR: #cbd5e1;
+      --LIGHT-COLOR: #f8fafc;
+      --DARK-COLOR: #0f172a;
+
+      --SQUARE-BGCOLOR: #c9afc9;
+      --SQUARE-SIZE: max(150px, 20vw);
+
+      --PADDING: 1.5rem;
+      --SHADOWS: 2px 2px 6px rgba(0, 0, 0, 0.5);
+      --BORDERS: 2px solid var(--DARK-COLOR);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --BGCOLOR: #0f172a;
+        --ALT-BGCOLOR: #1e293b;
+        --RADIAL-COLOR: #334155;
+        --LIGHT-COLOR: #f8fafc;
+        --DARK-COLOR: #020617;
+        --SQUARE-BGCOLOR: #5b4a66;
+      }
+    }
+
+    body {
+      font-family: var(--FF);
+      font-size: var(--FS);
+      min-height: 100vh;
+      background: radial-gradient(var(--RADIAL-COLOR), var(--BGCOLOR));
+    }
+
+    header {
+      background-color: var(--BGCOLOR);
+      color: var(--LIGHT-COLOR);
+      text-align: center;
+      padding: 0.25rem var(--PADDING);
+    }
+
+    header h1 { font-size: var(--FS-XL); }
+
+    nav {
+      background-color: var(--ALT-BGCOLOR);
+      color: var(--DARK-COLOR);
+      text-align: center;
+      padding: 0.5rem var(--PADDING);
+    }
+
+    nav h2 { font-size: 2.5rem; }
+
+    @media (prefers-color-scheme: dark) {
+      nav { color: var(--LIGHT-COLOR); }
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--PADDING);
+      padding: var(--PADDING);
+    }
+
+    .square {
+      width: var(--SQUARE-SIZE);
+      height: var(--SQUARE-SIZE);
+      background-color: var(--SQUARE-BGCOLOR);
+      border: var(--BORDERS);
+      border-radius: 20px;
+      box-shadow: var(--SHADOWS);
+      display: grid;
+      place-content: center;
+      font-size: 4rem;
+      color: var(--DARK-COLOR);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .square {
+        color: var(--LIGHT-COLOR);
+        border-color: var(--LIGHT-COLOR);
+      }
+    }
+
+    .square--highlight {
+      --SQUARE-BGCOLOR: cornflowerblue;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Header</h1>
+  </header>
+  <nav>
+    <h2>Nav</h2>
+  </nav>
+  <main>
+    <div class="square">Hey</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square square--highlight">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+    <div class="square">💻</div>
+  </main>
+</body>
+</html>
